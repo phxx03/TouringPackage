@@ -1,0 +1,7 @@
+{
+  "name": "TouringPackage",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

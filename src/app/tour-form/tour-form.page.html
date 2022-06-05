@@ -1,0 +1,116 @@
+<ion-header class="home-header" mode="ios">
+    <ion-item lines="none" color="danger" class="ion-no-padding">
+        <ion-icon class="right-arrow" name="chevron-back-outline" routerLink="/tour-detail"></ion-icon>
+        <ion-label class="text-red ion-padding-start" routerLink="/home"><b>TOURING PACKAGE</b></ion-label>
+    </ion-item>
+    <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.esm.js"></script>
+    <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/dist/ionic/ionic.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@4.7.4/css/ionic.bundle.css" />
+    <style>
+         :root {
+            --ion-safe-area-top: 20px;
+            --ion-safe-area-bottom: 22px;
+        }
+    </style>
+</ion-header>
+
+<ion-content mode="ios">
+
+    <ion-list *ngFor="let tmp of pagkage">
+        <ion-card>
+            <ion-card-header>
+                <ion-card-title>{{tmp.englishname}}</ion-card-title>
+            </ion-card-header>
+            <ion-card-content>
+                {{tmp.detail}}
+            </ion-card-content>
+        </ion-card>
+        <ion-card>
+            <ion-item lines="full" color="light">
+                <ion-label position="fixed" style=" font-size: 15px;">ชื่อ นามสกุล</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full" color="light">
+                <ion-label position="fixed" style=" font-size: 15px;">เบอร์ติดต่อ</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item lines="full" color="light">
+                <ion-label position="fixed" style=" font-size: 15px;">อีเมล</ion-label>
+                <ion-input type="text"></ion-input>
+            </ion-item>
+            <ion-item color="light" lines="full">
+                <ion-label style=" font-size: 15px;">ผู้ใหญ่</ion-label>
+                <ion-icon name="remove-circle" (click)="decrement()" color="danger"></ion-icon>
+                &nbsp;&nbsp;{{currentNumber}}&nbsp;&nbsp;
+                <ion-icon name="add-circle" (click)="increment()" color="success"></ion-icon>
+            </ion-item>
+            <ion-item color="light" lines="full">
+                <ion-label style=" font-size: 15px;">เด็ก อายุ 0-4 ปี</ion-label>
+                <ion-icon name="remove-circle" (click)="decrement()" color="danger"></ion-icon>
+                &nbsp;&nbsp;{{currentNumber}}&nbsp;&nbsp;
+                <ion-icon name="add-circle" (click)="increment()" color="success"></ion-icon>
+            </ion-item>
+            <ion-item color="light" lines="full">
+                <ion-label style=" font-size: 15px;">เด็ก อายุ 4-11 ปี</ion-label>
+                <ion-icon name="remove-circle" (click)="decrement()" color="danger"></ion-icon>
+                &nbsp;&nbsp;{{currentNumber}}&nbsp;&nbsp;
+                <ion-icon name="add-circle" (click)="increment()" color="success"></ion-icon>
+            </ion-item>
+            <!-- <ion-item color="light" lines="none">
+                <ion-label position="fixed">เด็ก</ion-label>
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="alert" placeholder="กรุณาระบุ">
+                    <ion-select-option value="male">มี</ion-select-option>
+                    <ion-select-option value="female">ไม่มี</ion-select-option>
+                </ion-select>
+            </ion-item> -->
+            <ion-item color="light" lines="full">
+                <ion-label style=" font-size: 15px;">เสริมเตียง <label style=" font-size: 11px; color: red">*สำหรับเด็กอายุ4-12ปี</label></ion-label>
+                <ion-select class="ion-no-padding ion-padding-end ion-select-full" okText="ตกลง" cancelText="ยกเลิก" interface="alert" placeholder="กรุณาระบุ">
+                    <ion-select-option value="male">เสริม</ion-select-option>
+                    <ion-select-option value="female">ไม่เสริม</ion-select-option>
+                </ion-select>
+            </ion-item>
+
+            <ion-item color="light" lines="full">
+                <form>
+                    <ion-label position="stacked" style=" font-size: 15px;">แจ้งวันที่เข้าพัก :</ion-label>
+                    <input style=" font-size: 15px; color: rgb(255, 255, 255)" type="date"> ถึง
+                    <input style=" font-size: 15px; color: rgb(255, 255, 255)" type="date">
+                </form>
+            </ion-item>
+
+            <ion-item color="light" lines="full">
+                <ion-label position="fixed" style=" font-size: 15px;">หมายเหตุ</ion-label>
+                <ion-textarea type="text"></ion-textarea>
+            </ion-item>
+            <ion-card-header>
+                <ion-card-title style=" font-size: 15px;">เงื่อนไขการจอง</ion-card-title>
+            </ion-card-header>
+            <ion-card-content style=" font-size: 13px;">1. กรุณาอ่านเงื่อนไขท้ายโปรแกรมอย่างละเอียด เพื่อประโยชน์ของตัวท่านเอง<br> 2. การรูดบัตรไม่มีค่าธรรมเนียม ในกรณีกรุ๊ปไม่คอนเฟิร์มการเดินทาง สามารถยก Credit ไปใช้กับพีเรียดอื่น หรือโปรแกรมทัวร์อื่นๆได้ (หากต้องการให้คืนเงิน จะหักค่าธรรมเนียมตามที่ธนาคารเรียกเก็บ
+                3%) และกรณีลูกค้ายกเลิกการเดินทาง (กรณีสามารถยกเลิกได้) ทางเราขออนุญาต คิดค่าธรรมเนียมตามธนาคารเรียกเก็บ 3% หักจากยอดชำระที่ได้ทำการตัดบัตรชำระเข้ามา<br> 3. บริษัทฯ สงวนสิทธิ์ที่จะเปลี่ยนแปลงรายละเอียดบางประการในทัวร์นี้ เมื่อเกิดเหตุสุดวิสัยจนไม่อาจแก้ไขได้<br>                4. บริษัทจะไม่รับผิดชอบค่าเสียหายใดๆ ในกรณีเหตุการณ์ที่เกิดจากสายการบิน ภัยธรรมชาติ ปฏิวัติและอื่นๆที่อยู่นอกเหนือการควบคุมของทางบริษัทฯ<br> 5. หากไม่สามารถไปเที่ยวในสถานที่ที่ระบุในโปรแกรมได้ อันเนื่องมาจากธรรมชาติ การจราจร ความล่าช้า
+                และความผิดพลาดจากทางสายการบิน จะไม่มีการคืนเงิน/ชดเชยใดๆทั้งสิ้น แต่ทั้งนี้ทางบริษัทฯจะจัดหารายการเที่ยวสถานที่อื่นๆมาให้ โดยขอสงวนสิทธิ์การจัดหานี้โดยไม่แจ้งให้ทราบล่วงหน้า<br> 6. หากท่านถอนตัวก่อนรายการท่องเที่ยวจะสิ้นสุดลง ทางบริษัทฯ
+                จะถือว่าท่านสละสิทธิ์และจะไม่รับผิดชอบค่าบริการที่ท่านได้ชำระไว้แล้วไม่ว่ากรณีใดๆ ทั้งสิ้น
+            </ion-card-content>
+            <ion-row class="ion-padding">
+                <ion-col size="auto">
+                    <ion-checkbox mode="md" color="danger"></ion-checkbox>
+                </ion-col>
+                <ion-col size="10">
+                    <ion-label style=" font-size: 12px;">
+                        <b>
+                      ฉันได้อ่านและยอมรับ
+                      <ion-text color="primary" routerLink="/agreement-template">เงื่อนไขข้อตกลง</ion-text>
+                      แล้ว
+                    </b>
+                    </ion-label>
+                </ion-col>
+            </ion-row>
+        </ion-card>
+    </ion-list>
+
+</ion-content>
+<ion-footer class="ion-no-border">
+    <div style="display: flex; justify-content: center;">
+        <ion-button color="danger" shape="round" routerLink="/tour-chackout">ยืนยัน</ion-button>
+    </div>
+</ion-footer>

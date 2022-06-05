@@ -1,20 +1,33 @@
-<ion-header [translucent]="true">
-  <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
-  </ion-toolbar>
-</ion-header>
+<body>
+    <ion-app>
+        <ion-header class="home-header" mode="ios">
+            <ion-item lines="none" color="danger" class="ion-no-padding">
+                <ion-label class="text-red ion-padding-start"><b>TOURING PACKAGE</b></ion-label>
+            </ion-item>
+            <br>
+            <ion-toolbar>
+                <ion-searchbar></ion-searchbar>
+            </ion-toolbar>
+        </ion-header>
 
-<ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">Blank</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
-</ion-content>
+        <ion-content mode="ios">
+
+            <ion-list button lines="full" class="ion-no-padding" *ngFor="let tmp of pagkage">
+                <ion-card routerLink="/tour-detail">
+                    <ion-img [src]="tmp.image"></ion-img>
+                    <ion-card-header>
+                        <ion-card-subtitle>{{tmp.thainame}}</ion-card-subtitle>
+                        <ion-card-title>{{tmp.englishname}}</ion-card-title>
+                    </ion-card-header>
+                    <ion-card-content>
+                        {{tmp.detail}}
+                    </ion-card-content>
+                </ion-card>
+
+
+            </ion-list>
+
+        </ion-content>
+    </ion-app>
+</body>
